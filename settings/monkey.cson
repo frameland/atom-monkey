@@ -1,0 +1,27 @@
+".source.monkey":
+  editor:
+    commentStart: "' "
+".source.monkey .meta.extern.monkey":
+  editor:
+    increaseIndentPattern: "(?xi)^\\s*\\b(?<!end|end\\s)(type)\\b"
+    decreaseIndentPattern: "(?xi)^\\s*\\bend\\s*(type)\\b"
+".source.monkey:not(.source.monkey .comment)":
+  editor:
+    increaseIndentPattern: '''
+      (?xi)
+      	^\\s*(
+      		(?<!end|end\\s)(function|method|type|select|while|try|if) |
+      		else|else\\s*if |
+      		for | repeat
+      	)\\b
+    '''
+    decreaseIndentPattern: '''
+      (?xi)
+      	^\\s*(
+      	# end <keyword>
+      		end\\s*(function|method|type|select|while|if|try) |
+      	# else/if
+      		else | else\\s*if |
+      		catch | wend | until | forever | next
+      	)\\b
+    '''
