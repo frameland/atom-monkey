@@ -1,6 +1,5 @@
 fileTypes: [
-  "monkey",
-  "monkey2"
+  "monkey"
 ]
 foldingStartMarker: '''
   (?xi)
@@ -56,11 +55,11 @@ patterns: [
         name: "keyword.other.import.monkey"
       "2":
         name: "string.unquoted.module.monkey"
-    match: "(?i)\\b(import|using)\\s+((?:[a-zA-Z_]\\w*\\.?)+)"
+    match: "(?i)\\b(import)\\s+((?:[a-zA-Z_]\\w*\\.?)+)"
     name: "import.module.monkey"
   }
   {
-    begin: "(?i)\\b(import|using)\\s+((\"))"
+    begin: "(?i)\\b(import)\\s+((\"))"
     beginCaptures:
       "1":
         name: "keyword.other.import.monkey"
@@ -306,7 +305,7 @@ patterns: [
     name: "keyword.operator.monkey"
   }
   {
-    match: "(?i)\\b(private|public|virtual|override)\\b"
+    match: "(?i)\\b(private|public)\\b"
     name: "keyword.other.scope.monkey"
   }
   {
