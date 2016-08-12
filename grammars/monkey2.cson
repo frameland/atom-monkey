@@ -1,10 +1,10 @@
 fileTypes: [
-  "monkey"
+  "monkey2"
 ]
 foldingStartMarker: '''
   (?xi)
       ^\\s*(
-          (?<!end|end\\s)(function|class|interface|method|select|while|if) |
+          (?<!end|end\\s)(function|class|interface|method|select|while|if|lambda) |
           \\#rem | for | repeat | '\\#region
       )\\b
 '''
@@ -12,7 +12,7 @@ foldingStopMarker: '''
   (?xi)
       ^\\s*(
       # end <keyword>
-          end\\s?(function|class|method|select|while) |
+          end\\s?(function|class|method|select|while|lambda) |
           \\#end|'\\#end\\s?region|end
       )\\b
 '''
@@ -55,11 +55,11 @@ patterns: [
         name: "keyword.other.import.monkey"
       "2":
         name: "string.unquoted.module.monkey"
-    match: "(?i)\\b(import)\\s+((?:[a-zA-Z_]\\w*\\.?)+)"
+    match: "(?i)\\b(import|using)\\s+((?:[a-zA-Z_]\\w*\\.?)+)"
     name: "import.module.monkey"
   }
   {
-    begin: "(?i)\\b(import)\\s+((\"))"
+    begin: "(?i)\\b(import|using)\\s+((\"))"
     beginCaptures:
       "1":
         name: "keyword.other.import.monkey"
@@ -305,7 +305,7 @@ patterns: [
     name: "keyword.operator.monkey"
   }
   {
-    match: "(?i)\\b(private|public)\\b"
+    match: "(?i)\\b(private|public|virtual|override|final|property)\\b"
     name: "keyword.other.scope.monkey"
   }
   {
@@ -579,7 +579,7 @@ repository:
     match: "(?xi)(?: \\: \\s* ([a-zA-Z_]\\w*) | ([!#%]|@{1,2}|\\$[zw]?) )"
     name: "typename.monkey"
   mnky_types:
-    match: "(?i)\\b(array|bool|int|float|string)\\b"
+    match: "(?i)\\b(ptr|array|bool|int|uint|short|ushort|byte|ubyte|long|ulong|float|double|string)\\b"
     name: "storage.type.monkey"
   mnky_url_content:
     match: "[a-zA-Z_]\\w*://[^ \"'()\\[\\]]*(?=$|\\b)"
